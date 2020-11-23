@@ -1,0 +1,693 @@
+/*-----------------------------------------------------------------------------------
+#####################################################################################
+
+    Template Name: Sample of HTML5 Corporate Business Template
+    Template URI: samplesite.com
+    Description: Sample of HTML5 Corporate Business Template
+    Author: BasicTheme
+    Author URI: samplesite.com
+    Version: 1.0
+
+-----------------------------------------------------------------------------------
+
+    CSS INDEX
+    ===================
+
+    01. Theme Common CSS
+	02. Header CSS
+    03. Slider CSS
+	04. Footer CSS
+####################################################################################
+-----------------------------------------------------------------------------------*/
+
+@import 'common';
+@import 'variables';
+@import 'mixins';
+
+/*form*/
+
+form {
+    & input[type="text"] {
+        width: 70%;
+        height: 45px;
+        border: 1px solid #888;
+        padding: 0 15px;
+        @media #{$xs} {
+            width: 50%;
+        }
+    }
+    & input[type="submit"] {
+        height: 45px;
+        padding: 0 8%;
+        text-transform: uppercase;
+        background: #222;
+        color: #fff;
+        border: 1px solid #888;
+        @media #{$xs} {
+            padding: 0 5%;
+        }
+    }
+}
+
+
+/* owl-carousel nav*/
+
+.owl-nav {
+    & span {
+        text-transform: uppercase;
+        &:hover {
+            color: #222;
+        }
+    }
+    & span.back {
+        position: relative;
+        padding-right: 30px;
+        &:after {
+            position: absolute;
+            right: 15px;
+            top: 0;
+            width: 1px;
+            height: 20px;
+            background: #888;
+            content: "";
+        }
+    }
+}
+
+
+/* btn */
+
+.slider_btn {
+    text-transform: uppercase;
+    border-bottom: 1px solid #222;
+    padding-bottom: 5px;
+    display: inline-block;
+}
+
+.product_btn {
+    font-weight: 700;
+}
+
+
+/*  #################################################################################
+Header area
+#################################################################################  */
+
+.header_area {
+    min-height: 170px;
+    display: flex;
+    align-items: center;
+    & .main_menu {
+        & ul {
+            & li {
+                display: inline-block;
+                position: relative;
+                padding-right: 45px;
+                @media #{$lg} {
+                    padding-right: 25px;
+                }
+                & ul.sub_menu {
+                    position: absolute;
+                    left: 0;
+                    width: 250px;
+                    background: #222;
+                    top: 115%;
+                    opacity: 0;
+                    visibility: hidden;
+                    @include transition(0.6s);
+                    z-index: 2;
+                    @media #{$md} {
+                        width: 210px;
+                    }
+                    & li {
+                        display: block;
+                        padding-right: 0;
+                        border-bottom: 1px solid #888;
+                        & a {
+                            padding: 15px;
+                            color: #888;
+                            display: block;
+                            text-transform: inherit;
+                            &:hover {
+                                color: $white-color;
+                            }
+                        }
+                        &:hover>a {
+                            color: $white-color;
+                        }
+                        & ul.sub_menu {
+                            position: absolute;
+                            left: 100%;
+                            top: 100%;
+                            border-left: 1px solid #888;
+                            opacity: 0;
+                            visibility: hidden;
+                            & li {
+                                & ul.sub_menu {
+                                    opacity: 0;
+                                    visibility: hidden;
+                                    top: 100%;
+                                }
+                                &:hover {
+                                    & ul.sub_menu {
+                                        opacity: 1;
+                                        visibility: visible;
+                                        top: 0;
+                                    }
+                                }
+                            }
+                        }
+                        &:hover {
+                            & ul.sub_menu {
+                                opacity: 1;
+                                visibility: visible;
+                                top: 0;
+                            }
+                        }
+                    }
+                    & li.sub_title {
+                        & a {
+                            color: $white-color;
+                            text-transform: uppercase;
+                        }
+                    }
+                }
+                & a {
+                    padding: 40px 0;
+                    display: block;
+                    text-transform: uppercase;
+                    & i {
+                        @include transition(0.6s);
+                        display: inline-block;
+                    }
+                    &:hover {
+                        color: $body-text-color;
+                    }
+                }
+                &:hover>a {
+                    color: $body-text-color;
+                    & i {
+                        @include transform_rotate(-90deg);
+                    }
+                }
+                &:hover {
+                    & ul.sub_menu {
+                        opacity: 1;
+                        visibility: visible;
+                        top: 100%;
+                    }
+                    & .mega-menu {
+                        opacity: 1;
+                        visibility: visible;
+                        top: 100%;
+                    }
+                }
+                & .mega-menu {
+                    position: absolute;
+                    left: 0;
+                    top: 115%;
+                    width: 700px;
+                    background: #222;
+                    padding: 30px;
+                    opacity: 0;
+                    visibility: hidden;
+                    @include transition(0.6s);
+                    z-index: 2;
+                    @media #{$md} {
+                        width: 600px;
+                    }
+                    & ul {
+                        width: 33.33%;
+                        float: left;
+                        padding-right: 30px;
+                        & li {
+                            display: block;
+                            padding-right: 0;
+                            & a {
+                                color: #888;
+                                display: block;
+                                padding: 15px 0;
+                                text-transform: inherit;
+                            }
+                            &:hover>a {
+                                color: #fff;
+                            }
+                        }
+                        & li.mega_title {
+                            border-bottom: 1px solid #888;
+                            & a {
+                                color: $white-color;
+                                text-transform: uppercase;
+                            }
+                        }
+                        &:last-child {
+                            padding-right: 0;
+                        }
+                    }
+                }
+                & .full_width {
+                    width: 100%;
+                    & ul {
+                        width: 25%;
+                    }
+                }
+            }
+        }
+    }
+    & .header_right {
+        & ul {
+            position: relative;
+            & li {
+                display: inline-block;
+                & a {
+                    text-transform: uppercase;
+                    font-size: 12px;
+                    padding: 40px 0 40px 40px;
+                    display: block;
+                    @media #{$lg} {
+                        padding: 40px 0 40px 30px;
+                    }
+                    @media #{$xs} {
+                        padding: 10px 0 0 10px;
+                    }
+                }
+                & .mini_cart_wrapper {
+                    position: absolute;
+                    right: 0;
+                    top: 110px;
+                    background: #222;
+                    padding: 50px;
+                    width: 380px;
+                    @include transition(0.6s);
+                    opacity: 0;
+                    visibility: hidden;
+                    z-index: 2;
+                    @media #{$xs} {
+                        width: 345px;
+                        padding: 30px;
+                        top: 70px;
+                    }
+                    & .mini_cart {
+                        display: flex;
+                        margin-bottom: 30px;
+                        & .mini_content {
+                            padding-left: 30px;
+                            text-align: left;
+                            & p {
+                                color: #aaa;
+                                font-size: 12px;
+                                text-transform: uppercase;
+                                &:last-child {
+                                    text-align: right;
+                                    & i {
+                                        font-size: 18px;
+                                        cursor: pointer;
+                                    }
+                                }
+                            }
+                            & h5 {
+                                color: #fff;
+                                & span {
+                                    font-size: 14px;
+                                    font-weight: 300;
+                                    color: #aaa;
+                                    padding-left: 10px;
+                                }
+                            }
+                        }
+                    }
+                    & .total_price {
+                        display: flex;
+                        justify-content: space-between;
+                        border-top: 1px solid #aaa;
+                        padding-top: 30px;
+                        & p {
+                            color: #aaa;
+                            line-height: 1;
+                        }
+                        & h5 {
+                            color: #aaa;
+                        }
+                    }
+                    & .checkout_btn {
+                        & a {
+                            display: block;
+                            color: #aaa;
+                            background: #000;
+                            text-align: center;
+                            text-transform: uppercase;
+                            padding: 25px 0 !important;
+                            margin-top: 15px;
+                        }
+                    }
+                }
+                &:hover .mini_cart_wrapper {
+                    visibility: visible;
+                    opacity: 1;
+                    top: 100px;
+                    @media #{$xs} {
+                        top: 60px;
+                    }
+                }
+            }
+        }
+    }
+    & .mean-bar {
+        @media #{$xs} {
+            margin-bottom: 20px;
+        }
+    }
+}
+
+
+/*  #################################################################################
+Slider area
+#################################################################################  */
+
+.slider_area {
+    & .single_carousel_slider {
+        height: 630px;
+        display: flex;
+        align-items: center;
+        background-position: center;
+        background-size: cover;
+        @media #{$lg} {
+            height: 500px;
+        }
+        @media #{$md} {
+            height: 400px;
+        }
+        @media #{$xs} {
+            height: 390px;
+            padding-left: 40px;
+        }
+        & .slider_text {
+            & .heading {
+                font-size: 36px;
+                text-transform: uppercase;
+                color: #222;
+                letter-spacing: 3px;
+                line-height: 1.2;
+                & span {
+                    font-weight: 700;
+                }
+            }
+        }
+    }
+    & .single_carousel_slider.middle {
+        justify-content: center;
+        align-items: flex-end;
+        text-align: center;
+    }
+    & .owl-nav {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        padding-right: 40px;
+        padding-bottom: 50px;
+    }
+}
+
+
+/*  #################################################################################
+Product area
+#################################################################################  */
+
+.product_area {
+    & .product_nav {
+        padding: 35px 0;
+        & li {
+            padding-right: 65px;
+            @media #{$md} {
+                padding-right: 25px;
+            }
+            @media #{$xs} {
+                padding-right: 20px;
+            }
+            & a {
+                font-size: 16px;
+                text-transform: uppercase;
+                padding: 5px 0;
+                @media #{$xs} {
+                    font-size: 12px;
+                }
+            }
+            & a.active {
+                border-bottom: 1px solid #888;
+            }
+            &:last-child {
+                padding-right: 0;
+            }
+        }
+    }
+    & .single_product {
+        overflow: hidden;
+        & .single_img {
+            position: relative;
+            overflow: hidden;
+            & .secondary_img {
+                position: absolute;
+                top: 50%;
+                opacity: 0;
+                visibility: hidden;
+                transition: 0.6s;
+            }
+            &>span {
+                position: absolute;
+                right: 0;
+                top: 0;
+                padding: 20px 30px;
+                text-transform: uppercase;
+                cursor: pointer;
+            }
+            & span.sale {
+                position: absolute;
+                left: 0;
+                top: 0;
+                padding: 20px 30px;
+            }
+            & .img_hover {
+                position: absolute;
+                width: 60px;
+                top: 50%;
+                left: 50%;
+                margin-left: -30px;
+                background: #fff;
+                text-align: center;
+                padding: 30px 0;
+                transform: translateY(0%);
+                transition: 0.6s;
+                opacity: 0;
+                visibility: hidden;
+                & i {
+                    display: block;
+                    width: 100%;
+                    font-size: 25px;
+                    margin-bottom: 25px;
+                    cursor: pointer;
+                    &:last-child {
+                        margin-bottom: 0;
+                    }
+                }
+            }
+        }
+        & .single_content {
+            text-align: center;
+            padding-top: 30px;
+            position: relative;
+            & p {
+                text-transform: uppercase;
+            }
+            & .rating {
+                padding-bottom: 20px;
+            }
+            & h5 {
+                @include transition(0.6s);
+                & del {
+                    font-weight: 400;
+                    font-size: 12px;
+                    padding-left: 10px;
+                }
+            }
+            & .product_btn {
+                position: absolute;
+                left: 30%;
+                bottom: 0;
+                transform: translateX(-50%);
+                opacity: 0;
+                visibility: hidden;
+            }
+        }
+        &:hover {
+            & .img_hover {
+                transform: translateY(-50%);
+                opacity: 1;
+                visibility: visible;
+            }
+            & .secondary_img {
+                top: 0;
+                opacity: 1;
+                visibility: visible;
+            }
+            & .product_btn {
+                left: 50%;
+                opacity: 1;
+                visibility: visible;
+            }
+            & .single_content {
+                h5 {
+                    opacity: 0;
+                    visibility: hidden;
+                    transform: translateX(70%);
+                    -webkit-transform: translateX(70%);
+                    -moz-transform: translateX(70%);
+                    -ms-transform: translateX(70%);
+                    -o-transform: translateX(70%);
+                }
+            }
+        }
+    }
+    & .owl-nav {
+        position: absolute;
+        right: 0px;
+        top: -65px;
+        padding-right: 0px;
+    }
+}
+
+
+/*  #################################################################################
+Banner area
+#################################################################################  */
+
+.banner_area {
+    @media #{$sm} {
+        padding-top: 0;
+    }
+    @media #{$xs} {
+        padding-top: 0;
+    }
+    & .bannaer_text {
+        padding: 80px 100px;
+        & h3 {
+            text-transform: uppercase;
+            line-height: 1;
+            margin-bottom: 0;
+        }
+        & p {
+            text-transform: uppercase;
+            font-size: 24px;
+            padding-left: 15px;
+            margin-bottom: 0;
+        }
+    }
+}
+
+
+/*  #################################################################################
+Subscribe area
+#################################################################################  */
+
+.subscribe_text {
+    & h3 {
+        text-transform: uppercase;
+    }
+    & p {
+        margin-bottom: 40px;
+    }
+}
+
+
+/*  #################################################################################
+Brand area
+#################################################################################  */
+
+.brand_area {
+    @media #{$sm} {
+        padding: 70px;
+    }
+    @media #{$xs} {
+        padding: 50px;
+    }
+    & .brand_wrapper {
+        text-align: center;
+        & .single_brand {
+            display: inline-block;
+            & img {
+                cursor: pointer;
+            }
+        }
+    }
+}
+
+
+/*  #################################################################################
+Footer area
+#################################################################################  */
+
+.footer_area {
+    & .footer_section {
+        border-top: 1px solid #eee;
+        padding: 120px 0;
+        @media #{$md} {
+            padding-bottom: 50px;
+        }
+        @media #{$sm} {
+            padding-bottom: 0px;
+            padding-top: 70px;
+        }
+        @media #{$xs} {
+            padding-bottom: 0px;
+            padding-top: 70px;
+        }
+        & .single_widget {
+            & .widget_title {
+                font-size: 16px;
+                text-transform: uppercase;
+                margin-bottom: 30px;
+            }
+            & li {
+                & a {
+                    line-height: 2.3;
+                }
+            }
+        }
+    }
+    & .footer_bottom_section {
+        border-top: 1px solid #eee;
+        padding: 40px 0;
+        & .footer_menu {
+            & ul {
+                & li {
+                    display: inline-block;
+                    padding-right: 40px;
+                    @media #{$xs} {
+                        padding-right: 10px;
+                    }
+                    & a {
+                        font-size: 12px;
+                        text-transform: uppercase;
+                        &:hover {
+                            color: #222;
+                            font-weight: 500;
+                        }
+                    }
+                    &:last-child {
+                        padding-right: 0;
+                    }
+                }
+            }
+        }
+        & .footer_icons {
+            & a {
+                padding-right: 30px;
+                &:last-child {
+                    padding-right: 0;
+                }
+            }
+            & span {
+                padding-right: 15px;
+            }
+        }
+    }
+}
